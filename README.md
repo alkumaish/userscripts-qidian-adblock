@@ -11,6 +11,7 @@ Once it detects an ad-wall, it blurs the text a bit while it's loading, and afte
 This does not play any ads under the hood; the delay is because Qidian generates a "token" specific to that chapter but it takes a while to become active."
 
 Tested & Working on Greasemonkey, Violentmonkey, and Tampermonkey. 
+
 Tested & NOT-Working on (Mikan-based) Yuzu & Habit.
 
 TODO:
