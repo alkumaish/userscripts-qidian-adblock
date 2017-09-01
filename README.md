@@ -1,6 +1,6 @@
 # userscripts-qidian-adblock
 
-Quoting noisypixy on http://forum.novelupdates.com/threads/qidian-adblock.43828/
+Quoting noisypixy http://forum.novelupdates.com/threads/qidian-adblock.43828/
 
 "It should allow you to bypass Qidian's forced video ads.
 
