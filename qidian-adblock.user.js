@@ -2,11 +2,11 @@
 // @name        webnovel.com skip video ads
 // @namespace   http://forum.novelupdates.com/
 // @version     4
+// @description skips qidian adwall
 // @run-at      document-end
-// @match       http://webnovel.com/book/*
-// @match       https://webnovel.com/book/*
-// @match       http://www.webnovel.com/book/*
-// @match       https://www.webnovel.com/book/*
+// @match       *://www.webnovel.com/*
+// @match	*://m.webnovel.com/*
+// @grant	none
 // ==/UserScript==
 
 //------------------------------------------------------------------------------
@@ -124,4 +124,10 @@ function main() {
 
 // Since Qidian may load new chapters without refreshing the page, we must
 // continuously check for new chapters in the page.
-setInterval(main, INTERVAL_CHAPTER_CHECK);
+if (document.location.href.startsWith('https://www.webnovel.com/book')) {
+	setInterval(main, INTERVAL_CHAPTER_CHECK);
+}
+
+if (document.location.href.startsWith('https://www.webnovel.com/rssbook/')) {
+	window.location.replace(g_dara.url);
+}
