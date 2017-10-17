@@ -6,6 +6,7 @@
 // @run-at      document-end
 // @match       *://www.webnovel.com/*
 // @match	*://m.webnovel.com/*
+// @include	*://*webnovel.com/*
 // @grant	none
 // ==/UserScript==
 
