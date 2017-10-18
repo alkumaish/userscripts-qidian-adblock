@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        webnovel.com skip video ads
 // @namespace   http://forum.novelupdates.com/
-// @version     4
+// @version     5
 // @description skips qidian adwall
 // @run-at      document-end
 // @match       *://www.webnovel.com/*
@@ -130,5 +130,7 @@ if (document.location.href.startsWith('https://www.webnovel.com/book')) {
 }
 
 if (document.location.href.startsWith('https://www.webnovel.com/rssbook/')) {
-	window.location.replace(g_dara.url);
+	if (g_data.url) {
+		window.location.replace(g_data.url);
+	}
 }
