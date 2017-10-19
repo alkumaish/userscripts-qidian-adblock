@@ -12,7 +12,6 @@ This does not play any ads under the hood; the delay is because Qidian generates
 
 Tested & Working on Greasemonkey, Violentmonkey, and Tampermonkey. 
 
-Tested & NOT-Working on (Mikan-based) Yuzu & Habit.
+Tested & Working on (Mikan-based) Yuzu & Habit. (20171018)
 
-TODO:
-Support m.webnovel.com
+Added Support for m.webnovel.com (20171018)
