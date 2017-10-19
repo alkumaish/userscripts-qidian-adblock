@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name        webnovel.com skip video ads
-// @namespace   http://forum.novelupdates.com/
+// @namespace   https://github.com/alkumaish
+// @author	Hussain Alkumaish <makosama[NOSPAM]@gmail.com>
+// @homepageURL	https://github.com/alkumaish/userscripts-qidian-adblock
 // @version     5
 // @description skips qidian adwall
 // @run-at      document-end
@@ -11,7 +13,11 @@
 // ==/UserScript==
 
 //------------------------------------------------------------------------------
-// This script is released to the public domain. No attribution is required.
+// This script is released under the GNU GPLv3.
+// Any and all modifications published should be licensed in accordance with
+// the GPLv3 terms.
+//
+// Hussain Alkumaish @ <makosama[NOSPAM]@gmail.com> 
 //------------------------------------------------------------------------------
 
 // How frequently this script should check for new chapters.
