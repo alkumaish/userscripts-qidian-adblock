@@ -151,7 +151,8 @@ function m_main() {
     const bid = window.location.href.split('/book/')[1].split('/')[0];
     
     // Get the ID for the chapter.
-    const cid = window.location.href.split('/book/')[1].split('/')[1];
+    //const cid = window.location.href.split('/book/')[1].split('/')[1];
+    const cid = lock.id.split('-')[1];
     
     // Both ID are required.
     if (!bid || !cid) {
