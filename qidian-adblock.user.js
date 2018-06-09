@@ -67,10 +67,18 @@ function main() {
     if (!bid || !cid) {
       return;
     }
-
-    return fetch(
-      `https://www.webnovel.com/apiajax/chapter/GetChapterContentToken?bookId=${bid}&chapterId=${cid}`
-    )
+    
+    var csrfTok;
+    var x = document.cookie.split(';'); 
+    for (var i = 0; i < x.length; i++) { 
+	    var c = x[i]; 
+	    c = c.trim();
+	    if (c.startsWith("_csrf")) csrfTok = c; 
+    }
+    
+    
+    const url=`https://www.webnovel.com/apiajax/chapter/GetChapterContentToken?${csrfTok}&bookId=${bid}&chapterId=${cid}`;
+    return fetch(url, {credentials: "include"})
       .then(resp => resp.json())
       .then(data => data.data.token)
       .then(token => encodeURIComponent(token))
@@ -85,9 +93,9 @@ function main() {
         //
         // This function will retry until it succeeds.
         function tick() {
-          const url = `https://www.webnovel.com/apiajax/chapter/GetChapterContentByToken?token=${token}`;
+          const url = `https://www.webnovel.com/apiajax/chapter/GetChapterContentByToken?${csrfTok}&token=${token}`;
 
-          fetch(url)
+          fetch(url, {credentials: "include"})
             .then(resp => resp.json())
             .then((data) => {
               content = data.data.content.trim();
@@ -167,9 +175,8 @@ function m_main() {
 	    if (c.startsWith("_csrf")) csrfTok = c; 
     }
     
-    return fetch(
-		    `https://m.webnovel.com/ajax/chapter/getChapterContentToken?${csrfTok}&bookId=${bid}&chapterId=${cid}`
-    )
+    const url = `https://m.webnovel.com/ajax/chapter/getChapterContentToken?${csrfTok}&bookId=${bid}&chapterId=${cid}`;
+    return fetch(url, {credentials: "include"})
       .then(resp => resp.json())
       .then(data => data.data.token)
       .then(token => encodeURIComponent(token))
@@ -186,7 +193,7 @@ function m_main() {
         function tick() {
           const url = `https://m.webnovel.com/ajax/chapter/getChapterContentByToken?${csrfTok}&token=${token}`;
 
-          fetch(url)
+          fetch(url, {credentials: "include"})
             .then(resp => resp.json())
             .then((data) => {
               content = data.data.content.trim();
@@ -221,6 +228,10 @@ function m_main() {
         // Update the chapter content and turn opacity back to 100%.
         contentElement.innerHTML = chapterHtml;
         contentElement.style.opacity = '1';
+
+	// remove ad-playing elements
+	lock.querySelector('.cha-watch-ad').remove();
+	lock.querySelector('.ad_square').remove();
       })
       .catch((err) => {
         console.error(err.stack);
